@@ -15,8 +15,9 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
  For this project I used a Multi Agent DDPG algorithm (see the paper [here](https://arxiv.org/abs/1706.02275)). I adapted the implementation of this algorithm in [tis repo](https://github.com/starry-sky6688/MADDPG) Cudos to [tarry-sky6688](https://github.com/starry-sky6688) for great implementation!
  
-  I solved  e environment in episodes, here is the learning plot:
+  I solved  e environment in ~1800 episodes, here is the learning plot:
   
+ ![IMAGE](https://github.com/dpokidin/drl-course-final-project/blob/main/training.png?raw=true)
 
 ### Getting Started
 1. CLone this repo
