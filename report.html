@@ -3,28 +3,39 @@
 <p class="has-line-data" data-line-start="1" data-line-end="4">For this project I used MADDPG algorithm. It is an adaptation of the DDPG algorithm for multiagant environment.<br>
 The idea is to lat critic observe the aggragate states and actions of all agents in the model while individual agent’s actor networks keep being isolated.<br>
 The fact that the critic network observes the aggregate state helps the learning process to deal with inherent non-stationarity of the multi agent environmnet.</p>
-<h1 class="code-line" data-line-start=6 data-line-end=7><a id="Configuration_6"></a>Configuration</h1>
-<h2 class="code-line" data-line-start=7 data-line-end=8><a id="Actors_7"></a>Actors</h2>
+<h1 class="code-line" data-line-start=4 data-line-end=5><a id="Training_effeciency_4"></a>Training effeciency</h1>
+<p class="has-line-data" data-line-start="5" data-line-end="7">I solved the environment in ~1800 episodes. The process is illustrated on the plot below.<br>
+<img src="https://github.com/dpokidin/drl-course-final-project/blob/main/training.png?raw=true" alt="IMAGE"></p>
+<h1 class="code-line" data-line-start=7 data-line-end=8><a id="Configuration_7"></a>Configuration</h1>
+<h2 class="code-line" data-line-start=8 data-line-end=9><a id="Actors_8"></a>Actors</h2>
 <ul>
-<li class="has-line-data" data-line-start="8" data-line-end="9">3 FC layers (64 units each)</li>
-<li class="has-line-data" data-line-start="9" data-line-end="10">tanh output</li>
-<li class="has-line-data" data-line-start="10" data-line-end="11">Relu activation</li>
-<li class="has-line-data" data-line-start="11" data-line-end="12">Adam optimizer: learning rate 1e-4</li>
+<li class="has-line-data" data-line-start="9" data-line-end="10">3 FC layers (64 units each)</li>
+<li class="has-line-data" data-line-start="10" data-line-end="11">tanh output</li>
+<li class="has-line-data" data-line-start="11" data-line-end="12">Relu activation</li>
+<li class="has-line-data" data-line-start="12" data-line-end="13">Adam optimizer: learning rate 1e-4</li>
 </ul>
-<h2 class="code-line" data-line-start=12 data-line-end=13><a id="Critic_12"></a>Critic</h2>
+<h2 class="code-line" data-line-start=13 data-line-end=14><a id="Critic_13"></a>Critic</h2>
 <ul>
-<li class="has-line-data" data-line-start="13" data-line-end="14">3 FC layers (64 units each)</li>
-<li class="has-line-data" data-line-start="14" data-line-end="15">linear output</li>
-<li class="has-line-data" data-line-start="15" data-line-end="16">Relu activation</li>
-<li class="has-line-data" data-line-start="16" data-line-end="17">Adap optimizer: learning rate 1e-3</li>
+<li class="has-line-data" data-line-start="14" data-line-end="15">3 FC layers (64 units each)</li>
+<li class="has-line-data" data-line-start="15" data-line-end="16">linear output</li>
+<li class="has-line-data" data-line-start="16" data-line-end="17">Relu activation</li>
+<li class="has-line-data" data-line-start="17" data-line-end="18">Adap optimizer: learning rate 1e-3</li>
 </ul>
-<h2 class="code-line" data-line-start=17 data-line-end=18><a id="Shared_parameters_17"></a>Shared parameters</h2>
+<h2 class="code-line" data-line-start=18 data-line-end=19><a id="Shared_parameters_18"></a>Shared parameters</h2>
 <ul>
-<li class="has-line-data" data-line-start="18" data-line-end="19">batch size 256</li>
-<li class="has-line-data" data-line-start="19" data-line-end="20">buffer size 5e5</li>
-<li class="has-line-data" data-line-start="20" data-line-end="21">tau (soft update) 0.01</li>
-<li class="has-line-data" data-line-start="21" data-line-end="22">epsilon (random action prob) 0.1 decreasing linearly by 5e-08 after each episode</li>
-<li class="has-line-data" data-line-start="22" data-line-end="23">action noise - 0.1 decreasing linearly by 5e-08 after each episode</li>
-<li class="has-line-data" data-line-start="23" data-line-end="24">gamma (discount factor) 0.99</li>
+<li class="has-line-data" data-line-start="19" data-line-end="20">batch size 256</li>
+<li class="has-line-data" data-line-start="20" data-line-end="21">buffer size 5e5</li>
+<li class="has-line-data" data-line-start="21" data-line-end="22">tau (soft update) 0.01</li>
+<li class="has-line-data" data-line-start="22" data-line-end="23">epsilon (random action prob) 0.1 decreasing linearly by 5e-08 after each episode</li>
+<li class="has-line-data" data-line-start="23" data-line-end="24">action noise - 0.1 decreasing linearly by 5e-08 after each episode</li>
+<li class="has-line-data" data-line-start="24" data-line-end="26">gamma (discount factor) 0.99</li>
+</ul>
+<h1 class="code-line" data-line-start=26 data-line-end=27><a id="Ideas_for_improvement_26"></a>Ideas for improvement</h1>
+<p class="has-line-data" data-line-start="27" data-line-end="29">The algorithm above performs well for this simple environment.<br>
+However, for more complex environments one might need to consider the following alternative improvements:</p>
+<ul>
+<li class="has-line-data" data-line-start="29" data-line-end="30"><strong>Prioritized sampling</strong>. This will likely speed up the training process since the learning will be focused on more challendging states (where the agent performed poorly)</li>
+<li class="has-line-data" data-line-start="30" data-line-end="31"><strong>n-step bootsrapping</strong>. This one will likely increase the stability of the learning process by reducing the bias</li>
+<li class="has-line-data" data-line-start="31" data-line-end="32"><strong>Alternative algorithms</strong>. For cooperative environments with homogenous agents like this one might consider learning a single policy for all agents agents or use an enseble of policies like described in <a href="https://arxiv.org/pdf/1706.02275.pdf">this paper</a></li>
 </ul>
 </body></html>
