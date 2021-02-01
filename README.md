@@ -19,7 +19,7 @@ The environment is considered solved, when the average (over 100 episodes) of th
   
  ![IMAGE](https://github.com/dpokidin/drl-course-final-project/blob/main/training.png?raw=true)
 
-### Getting Started
+### Instructions
 1. CLone this repo
 2. Follow the instructions [here](https://github.com/udacity/deep-reinforcement-learning#dependencies) to create and activate a python environment.
 3. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
@@ -33,9 +33,17 @@ The environment is considered solved, when the average (over 100 episodes) of th
     (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Linux_NoVis.zip) to obtain the "headless" version of the environment.  You will **not** be able to watch the agent without enabling a virtual screen, but you will be able to train the agent.  (_To watch the agent, you should follow the instructions to [enable a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above._)
 
 4. Place the folder in this repository locally. 
+5. Follow the instructions in `Tennis.ipynb` to get observe the agent that I trained (do not forget to swith to the `drlnd` kernel as described in step 2)!
+6. If you want to train your own agent go to `main.py`. You can use an IDE of your choice (i.e. Spyder) or you could run in it from the command line.
 
-### Instructions
+### Description of the repo contents
+- `agent.py` - contains the definition of the agent class
+- `Tennis.ipynb` - jupyter notebook to observe the trained agents
+- `trainer.py` - Trainer class. Performs training of the agents
+- `main.py` - training. Intializes and runs config and trainer classes.
+- `maddpg/maddpg.py` - MADDPG implementation
+- `maddpg/actor_critic.py` - actor and critic networks for MADDPG
+- `common/Config.py` - Config class that stores training configurations
+- `common/replay_buffer.py` - replay buffer class for agents
 
-Follow the instructions in `Tennis.ipynb` to get observe the agent that I trained!
-If you want to train your own agent go to `main.py`.
 
